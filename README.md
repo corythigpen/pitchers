@@ -28,3 +28,19 @@ jupyter notebook PitcherDatabaseCreation.ipynb
 In order for the above command to work be sure you have jupyter notebook installed.
 
 Follow the steps in `PitcherDatabaseCreation.ipynb` to create your Mysql database.
+
+Once the database has been created and the data is imported you can now start the server.
+
+## Start server
+
+```bash
+# type in terminal
+python server.py
+```
+
+You can now navigate the application with the following routes...
+
+## Routes
+`Home Page :` http://127.0.0.1:5000/
+
+`Pitchers by amount:` http://127.0.0.1:5000/api/v1.0/pitchers/<amount>
