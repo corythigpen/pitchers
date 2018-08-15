@@ -19,6 +19,10 @@ Make sure you have the following jupyter notebook installed...
 ## Create MYSQL DB
 
 ```bash
+# first run
+git clone git@github.com:TheQuengineer/pitchers.git
+
+# Launch notebook
 jupyter notebook PitcherDatabaseCreation.ipynb
 ```
 In order for the above command to work be sure you have jupyter notebook installed.
