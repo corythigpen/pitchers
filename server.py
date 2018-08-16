@@ -5,7 +5,7 @@ Starts the Pitcher Web server
 """
 
 from flask import Flask
-from flask import Flask, abort, request
+from flask import Flask, abort, request, render_template
 from flask import Response
 import logging
 import mysql.connector
@@ -40,7 +40,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return "2018 MLB Pitcher Data Service"
+    return render_template('index.html')
 
 
 @app.route('/api/v1.0/pitchers/<amount>', methods=['POST', 'GET'])
@@ -50,6 +50,14 @@ def pitchers(amount):
     query = "SELECT * FROM mlb_stats_2018 LIMIT {0};".format(str(amount))
     data = fetch_data(query)
     xml = dicttoxml(data, custom_root='Pitchers', attr_type=True)
+    return Response(xml, mimetype='text/xml')
+
+
+@app.route('/api/v1.0/all', methods=['GET'])
+def all():
+    query = "SELECT * FROM mlb_stats_2018;"
+    data = fetch_data(query)
+    xml = dicttoxml(data, custom_root='Pitchers', attr_type= True)
     return Response(xml, mimetype='text/xml')
 
 

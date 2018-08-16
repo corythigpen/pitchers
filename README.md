@@ -38,9 +38,6 @@ Once the database has been created and the data is imported you can now start th
 python server.py
 ```
 
-You can now navigate the application with the following routes...
+The home page you should see looks like..
 
-## Routes
-`Home Page :` http://127.0.0.1:5000/
-
-`Pitchers by amount:` http://127.0.0.1:5000/api/v1.0/pitchers/<amount>
+![web interface](example.png)
