@@ -47,7 +47,7 @@ def index():
 def pitchers(amount):
     global my_num;
     my_num = int(amount)
-    query = "SELECT * FROM mlb_stats_2018 LIMIT {0};".format(str(amount))
+    query = "SELECT PitcherId,Name,Fip,FipStdDev,Salary,SalaryStdDev,AdjustedScore FROM mlb_stats_2018 LIMIT {0};".format(str(amount))
     data = fetch_data(query)
     xml = dicttoxml(data, custom_root='Pitchers', attr_type=True)
     return Response(xml, mimetype='text/xml')
